@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Personal Website</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      background: #f5f5f5;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3em;
+    }
+    .typed-text {
+      color: #007BFF;
+      font-weight: bold;
+    }
+    section {
+      padding: 80px 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2em;
+    }
+    .about, .contact {
+      max-width: 800px;
+      margin: auto;
+    }
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .project {
+      background: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ddd;
+      transition: transform 0.3s;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #007BFF;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #0056b3;
+    }
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 30px 0;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+      nav a {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div><strong>MySite</strong></div>
+        <div>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Hello, I'm <span class="typed-text"></span></h1>
+    <p>Welcome to my personal website.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+      <p>
+        I'm a passionate developer with a love for clean code and creative design. 
+        I enjoy solving problems, building web experiences, and constantly learning.
+      </p>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio">
+      <div class="project">
+        <h3>Project One</h3>
+        <p>Simple HTML/CSS project showcasing layout design.</p>
+      </div>
+      <div class="project">
+        <h3>Project Two</h3>
+        <p>A JavaScript app demonstrating interactive features.</p>
+      </div>
+      <div class="project">
+        <h3>Project Three</h3>
+        <p>React-based dashboard for monitoring activities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact">
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 My Personal Website</p>
+    <div class="socials">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+  <script>
+    const text = ["a Web Developer", "a Designer", "a Creator"];
+    let count = 0;
+    let i = 0;
+    let currentText = '';
+    let letter = '';
+
+    (function type() {
+      if (count === text.length) count = 0;
+      currentText = text[count];
+      letter = currentText.slice(0, ++i);
+
+      document.querySelector(".typed-text").textContent = letter;
+      if (letter.length === currentText.length) {
+        count++;
+        i = 0;
+        setTimeout(type, 1000);
+      } else {
+        setTimeout(type, 100);
+      }
+    })();
+  </script>
+</body>
+</html>
